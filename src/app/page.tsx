@@ -51,7 +51,7 @@ export default function HomePage() {
             ],
           },
           {
-            title: "Ensemble, construisons l’avenir",
+            title: "Ensemble, osons le changement pour Gbélégban - Seydougou !",
             subtitle: "Innovation • Développement • Cohésion",
             imageSrc: "/images/fofana_ousmane.jpeg",
             ctaButtons: [
@@ -60,7 +60,7 @@ export default function HomePage() {
             ],
           },
           {
-            title: "Une vision moderne pour Seydougou",
+            title: "Une vision moderne pour Gbélégban - Seydougou",
             subtitle: "Leadership – Transparence – Impact",
             imageSrc: "/images/seydougou.png",
             ctaButtons: [
