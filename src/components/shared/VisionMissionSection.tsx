@@ -47,7 +47,7 @@ const VisionMissionSection: React.FC = () => {
           <div className="lg:w-1/2 w-full mb-8 lg:mb-0 relative">
             <div className="bg-gray-100 rounded-xl h-96 flex items-center justify-center overflow-hidden">
               <img
-                src="/images/vision-illustration.jpg"
+                src="/images/vision-illustration.jpeg"
                 alt="Équipe en réunion d'analyse"
                 className="w-full h-full object-cover"
               />
