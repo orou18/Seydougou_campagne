@@ -12,7 +12,7 @@ import {
 
 // Définition du type pour chaque engagement
 interface CommitmentItem {
-  icon: React.ReactElement<{ className?: string }>;
+  icon: React.ReactElement<any , any>;
   label: string; // Le point d'engagement complet
 }
 
