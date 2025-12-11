@@ -59,7 +59,7 @@ const PolicyCard: React.FC<PolicyCardProps> = ({
   return (
     <div className="bg-white shadow-lg rounded-xl overflow-hidden transform transition duration-300 hover:shadow-2xl flex flex-col">
       {/* Zone de l'image */}
-      <div className="h-48 relative overflow-hidden">
+      <div className="h-96 relative overflow-hidden">
         {/* On utilise l'image fournie, mais on pourrait utiliser next/image */}
         <img
           src={imageSrc}
@@ -69,7 +69,7 @@ const PolicyCard: React.FC<PolicyCardProps> = ({
       </div>
 
       {/* Contenu de la carte */}
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-6 flex flex-col h-auto">
         <div className="flex items-start mb-4">
           <div
             className={icon.props.className.replace(
