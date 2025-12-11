@@ -85,8 +85,8 @@ const CommitmentPoints: React.FC = () => {
               >
                 {/* L'icône elle-même avec taille adaptée */}
                 {React.cloneElement(item.icon as React.ReactElement, {
-                    className: "w-7 h-7",
-                    style: { color: VIOLET_PRIMARY } as React.CSSProperties
+                  //  className: "w-7 h-7",
+                   // style: { color: VIOLET_PRIMARY } as React.CSSProperties
                 })}
               </div>
               
