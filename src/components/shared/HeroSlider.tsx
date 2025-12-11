@@ -65,8 +65,8 @@ export default function HeroSlider({ slides, autoSlideInterval = 7000 }: HeroSli
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.15, // Délai progressif pour chaque élément (0.15s)
-        duration: 0.5,
+        delay: i * 0.5, // Délai progressif pour chaque élément (0.15s)
+        duration: 0.3,
         ease: "easeOut", // Le typage Variants gère cette chaîne
       },
     }),
