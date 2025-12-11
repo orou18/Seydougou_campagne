@@ -38,7 +38,7 @@ const PolicySection: React.FC = () => {
         <div className="mb-10 flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-8">
           {/* Titre et Étiquette */}
           <div className="flex-shrink-0">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white bg-[#F4E8A5] rounded-full">
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white bg-[#F4E8A5] rounded-md">
               Position Politique
             </span>
             <h2 className="mt-2 text-4xl font-extrabold text-gray-900 leading-tight">

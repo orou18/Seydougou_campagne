@@ -5,7 +5,7 @@ import Header from "@/components/shared/Header";
 import HeroSlider from "@/components/shared/HeroSlider";
 import PolicyPositionSection from "@/components/shared/PolicyPositionSection";
 import VisionMissionSection from "@/components/shared/VisionMissionSection";
-
+import UpcomingEventsSection from '../components/shared/UpcomingEventsSection';
 export default function HomePage() {
   return (
     <main className="w-full min-h-screen">
@@ -21,7 +21,7 @@ export default function HomePage() {
 
       {/* HEADER */}
       <Header
-        logo="/images/logo.png"
+        logo="/images/logo1.png"
         menuItems={[
           { label: "Accueil", href: "/" },
           { label: "Biographie", href: "/biographie" },
@@ -71,6 +71,10 @@ export default function HomePage() {
 
        {/*Section Visions   */}
       <VisionMissionSection />
+
+      <UpcomingEventsSection/>
+
+
 
     </main>
   );
