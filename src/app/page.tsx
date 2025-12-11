@@ -6,6 +6,12 @@ import HeroSlider from "@/components/shared/HeroSlider";
 import PolicyPositionSection from "@/components/shared/PolicyPositionSection";
 import VisionMissionSection from "@/components/shared/VisionMissionSection";
 import UpcomingEventsSection from '../components/shared/UpcomingEventsSection';
+import DonationBanner from "@/components/shared/DonationBanner";
+import { GalleryPage } from "@/components/shared/GalleryPage";
+import PoliticalTeamSection from "@/components/shared/PoliticalTeamSection";
+import {RegularUpdateSection} from "@/components/shared/RegularUpdateSection";
+import ContactFormSection from "@/components/shared/ContactFormSection";
+
 export default function HomePage() {
   return (
     <main className="w-full min-h-screen">
@@ -18,7 +24,6 @@ export default function HomePage() {
           { icon: <></>, href: "#" }, 
         ]}
       />
-
       {/* HEADER */}
       <Header
         logo="/images/logo1.png"
@@ -37,9 +42,9 @@ export default function HomePage() {
       <HeroSlider
         slides={[
           {
-            title: "Fofana Vakaba – Candidat à la mairie de Seydougou",
-            subtitle: "Pour une commune forte, unie et prospère",
-            imageSrc: "/images/candidat1.jpg",
+            title: "Fofana Vakaba – Candidat aux élections légioslatives du 27 décembre 2025",
+            subtitle: "Pour une Côte d'Ivoire plus juste, plus forte et plus solidaire.",
+            imageSrc: "/images/fofana2.jpeg",
             ctaButtons: [
               { label: "Je soutiens la campagne", href: "/soutenir" },
               { label: "Découvrir le programme", href: "/programme" },
@@ -48,7 +53,7 @@ export default function HomePage() {
           {
             title: "Ensemble, construisons l’avenir",
             subtitle: "Innovation • Développement • Cohésion",
-            imageSrc: "/images/candidat2.jpg",
+            imageSrc: "/images/fofana_ousmane.jpeg",
             ctaButtons: [
               { label: "Participer", href: "/participer" },
               { label: "Voir les actions", href: "/actions" },
@@ -57,7 +62,7 @@ export default function HomePage() {
           {
             title: "Une vision moderne pour Seydougou",
             subtitle: "Leadership – Transparence – Impact",
-            imageSrc: "/images/candidat3.jpg",
+            imageSrc: "/images/seydougou.png",
             ctaButtons: [
               { label: "Rejoindre l’équipe", href: "/team" },
               { label: "Lire les actualités", href: "/actualites" },
@@ -65,14 +70,37 @@ export default function HomePage() {
           },
         ]}
       />
+      <br />
 
       {/* SECTION VALEURS */}
       <PolicyPositionSection />
 
+      <br />
+
        {/*Section Visions   */}
       <VisionMissionSection />
 
+      <br />
+
       <UpcomingEventsSection/>
+
+      <br />
+
+       <DonationBanner/>
+
+       <br />
+
+        <GalleryPage/>
+
+        <br />
+
+        <PoliticalTeamSection/>
+         <br />
+
+        <RegularUpdateSection/>
+         <br />
+
+        <ContactFormSection/>
 
 
 

@@ -1,10 +1,44 @@
 // components/VisionMissionSection.tsx
-import React from "react";
 
-import StatBar from "./StatBar";
-import Image from "next/image";
+"use client"; // Ajout de la directive pour utiliser useState
+
+import React, { useState } from "react";
+import CommitmentPoints from "./CommitmentPoints";
+import FullTextModal from "./FullTextModal"; 
+
+const INDIGO_PRIMARY = '#4B0082'; // Violet Indigo
+const ORANGE_ACCENT = '#FFA500';  // Orange Crème
+
+const fullTextContent = `Chères populations de Gbéléban–Seydougou,
+Chers frères et sœurs,
+Chers parents,
+
+Voilà maintenant quinze (15) ans que nous avons placé notre espoir en un choix que nous pensions juste. Malgré les renouvellements successifs, portés par un grand espoir d’amélioration, la déception n’en a été que plus profonde. C’est pourquoi nous avons décidé de répondre à votre appel, à votre cri de cœur, en acceptant de nous porter candidats aux élections législatives pour le département de Gbéléban–Seydougou. 
+
+Oui, pour vous, nous avons osé. Aux côtés de mon aîné Ousmane CISSÉ, nous avons choisi de porter vos aspirations, vos voix et vos intérêts à l’Assemblée nationale. En quinze (15) ans de gouvernance, le Président de la République a beaucoup fait pour notre département, en y implantant de nombreuses infrastructures économiques, éducatives, sanitaires et sociales. Nous lui en sommes profondément reconnaissants. Notre engagement se justifie d’ailleurs par le taux record de participation enregistré lors de la dernière élection présidentielle, avec un score de 99,90 % en faveur du Président Alassane OUATTARA dans notre circonscription. 
+
+Cependant, il nous revient de jouer pleinement notre rôle dans l’essor de notre département en prenant part aux débats politiques nationaux, en redynamisant notre développement par la valorisation de nos ressources locales, en encourageant les activités génératrices de revenus pour les jeunes et les femmes, et en veillant à la bonne exécution des projets structurants susceptibles d’impacter positivement la vie de nos populations. Œuvrer pour que notre département bénéficie d’une part significative dans la distribution des richesses nationales, telle que promise par le Chef de l’État pour ce nouveau quinquennat, sera l’une de nos priorités. 
+
+Chers parents, notre candidature vise également à renforcer l’union et la fraternité entre Gbéléban et Seydougou, mises à mal durant ces quinze (15) années par la priorisation d’intérêts personnels au détriment du bien-être de nos populations. Nous ne sommes contre personne ; nous sommes contre un système qui, durant tout ce temps, a trahi ses engagements et manqué à l’appel du peuple. 
+
+Populations de Gbéléban et de Seydougou, vous nous avez interpellés, vous nous avez appelés. Nous sommes là pour vous représenter et vous défendre, comme vous l’avez toujours souhaité. Avec vous, nous prenons rendez-vous le 27 décembre pour un nouveau départ. 
+
+Pour vous, nous avons osé !
+Ensemble, osons le changement maintenant ! 
+
+VAKABA FOFANA 
+OUSMANE CISSÉ`;
+
+// TRONCATION MODIFIÉE : Prend les deux premiers blocs (séparés par \n\n) pour garantir un extrait plus long.
+const excerptContent = fullTextContent.split('\n\n').slice(0, 2).join('\n\n') + '...';
+
 
 const VisionMissionSection: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20">
@@ -22,8 +56,7 @@ const VisionMissionSection: React.FC = () => {
 
           {/* Bloc Texte / Mission */}
           <div className="lg:w-1/2 w-full lg:pl-16">
-            {/* Étiquette d'accentuation (Orange Ivoirien) */}
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white bg-[#F4E8A5] rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white rounded-full mb-4" style={{ backgroundColor: ORANGE_ACCENT }}>
               Vision & priorités
             </span>
 
@@ -32,54 +65,26 @@ const VisionMissionSection: React.FC = () => {
               Notre vision pour la Côte d'Ivoire
             </h2>
 
-            {/* Texte de description */}
-            <p className="text-lg text-gray-600 mb-6">
-              {/* 𝘊𝘩𝘦𝘳𝘴 𝘱𝘢𝘳𝘦𝘯𝘵𝘴, 𝘯𝘰𝘵𝘳𝘦 𝘤𝘢𝘯𝘥𝘪𝘥𝘢𝘵𝘶𝘳𝘦 𝘷𝘪𝘴𝘦 𝘦́𝘨𝘢𝘭𝘦𝘮𝘦𝘯𝘵 𝘢̀ 𝘳𝘦𝘯𝘧𝘰𝘳𝘤𝘦𝘳 𝘭’𝘶𝘯𝘪𝘰𝘯 
-              𝘦𝘵 𝘭𝘢 𝘧𝘳𝘢𝘵𝘦𝘳𝘯𝘪𝘵𝘦́ 𝘦𝘯𝘵𝘳𝘦 𝘎𝘣𝘦́𝘭𝘦́𝘣𝘢𝘯 𝘦𝘵 𝘚𝘦𝘺𝘥𝘰𝘶𝘨𝘰𝘶, 
-              𝘮𝘪𝘴𝘦𝘴 𝘢̀ 𝘮𝘢𝘭 𝘥𝘶𝘳𝘢𝘯𝘵 𝘤𝘦𝘴 𝘲𝘶𝘪𝘯𝘻𝘦 (𝟣𝟧) 𝘢𝘯𝘯𝘦́𝘦𝘴 𝘱𝘢𝘳 𝘭𝘢 𝘱𝘳𝘪𝘰𝘳𝘪𝘴𝘢𝘵𝘪𝘰𝘯 
-              𝘥’𝘪𝘯𝘵𝘦́𝘳𝘦̂𝘵𝘴 𝘱𝘦𝘳𝘴𝘰𝘯𝘯𝘦𝘭𝘴 𝘢𝘶 𝘥𝘦́𝘵𝘳𝘪𝘮𝘦𝘯𝘵 𝘥𝘶 𝘣𝘪𝘦𝘯-𝘦̂𝘵𝘳𝘦 𝘥𝘦 𝘯𝘰𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘵𝘪𝘰𝘯𝘴. 
-              𝘕𝘰𝘶𝘴 𝘯𝘦 𝘴𝘰𝘮𝘮𝘦𝘴 𝘤𝘰𝘯𝘵𝘳𝘦 𝘱𝘦𝘳𝘴𝘰𝘯𝘯𝘦 ; 𝘯𝘰𝘶𝘴 𝘴𝘰𝘮𝘮𝘦𝘴 𝘤𝘰𝘯𝘵𝘳𝘦 𝘶𝘯 𝘴𝘺𝘴𝘵𝘦̀𝘮𝘦 𝘲𝘶𝘪, 
-              𝘥𝘶𝘳𝘢𝘯𝘵 𝘵𝘰𝘶𝘵 𝘤𝘦 𝘵𝘦𝘮𝘱𝘴, 𝘢 𝘵𝘳𝘢𝘩𝘪 𝘴𝘦𝘴 𝘦𝘯𝘨𝘢𝘨𝘦𝘮𝘦𝘯𝘵𝘴 𝘦𝘵 𝘮𝘢𝘯𝘲𝘶𝘦́ 𝘢̀ 𝘭’𝘢𝘱𝘱𝘦𝘭 𝘥𝘶 𝘱𝘦𝘶𝘱𝘭𝘦. */}
-              𝘊𝘩𝘦̀𝘳𝘦𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘵𝘪𝘰𝘯𝘴 𝘥𝘦 𝘎𝘣𝘦́𝘭𝘦́𝘣𝘢𝘯–𝘚𝘦𝘺𝘥𝘰𝘶𝘨𝘰𝘶, 
-              𝘊𝘩𝘦𝘳𝘴 𝘧𝘳𝘦̀𝘳𝘦𝘴 𝘦𝘵 𝘴œ𝘶𝘳𝘴, 
-              𝘊𝘩𝘦𝘳𝘴 𝘱𝘢𝘳𝘦𝘯𝘵𝘴, 
-              𝘝𝘰𝘪𝘭𝘢̀ 𝘮𝘢𝘪𝘯𝘵𝘦𝘯𝘢𝘯𝘵 𝘲𝘶𝘪𝘯𝘻𝘦 (𝟣𝟧) 𝘢𝘯𝘴 𝘲𝘶𝘦 𝘯𝘰𝘶𝘴 𝘢𝘷𝘰𝘯𝘴 𝘱𝘭𝘢𝘤𝘦́ 𝘯𝘰𝘵𝘳𝘦 𝘦𝘴𝘱𝘰𝘪𝘳 𝘦𝘯 𝘶𝘯 𝘤𝘩𝘰𝘪𝘹 𝘲𝘶𝘦 𝘯𝘰𝘶𝘴 𝘱𝘦𝘯𝘴𝘪𝘰𝘯𝘴 𝘫𝘶𝘴𝘵𝘦. 
-              𝘔𝘢𝘭𝘨𝘳𝘦́ 𝘭𝘦𝘴 𝘳𝘦𝘯𝘰𝘶𝘷𝘦𝘭𝘭𝘦𝘮𝘦𝘯𝘵𝘴 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘪𝘧𝘴, 𝘱𝘰𝘳𝘵𝘦́𝘴 𝘱𝘢𝘳 𝘶𝘯 𝘨𝘳𝘢𝘯𝘥 𝘦𝘴𝘱𝘰𝘪𝘳 𝘥’𝘢𝘮𝘦́𝘭𝘪𝘰𝘳𝘢𝘵𝘪𝘰𝘯, 𝘭𝘢 𝘥𝘦́𝘤𝘦𝘱𝘵𝘪𝘰𝘯 𝘯’𝘦𝘯 𝘢 𝘦́𝘵𝘦́ 𝘲𝘶𝘦 𝘱𝘭𝘶𝘴 𝘱𝘳𝘰𝘧𝘰𝘯𝘥𝘦. 
-              𝘊’𝘦𝘴𝘵 𝘱𝘰𝘶𝘳𝘲𝘶𝘰𝘪 𝘯𝘰𝘶𝘴 𝘢𝘷𝘰𝘯𝘴 𝘥𝘦́𝘤𝘪𝘥𝘦́ 𝘥𝘦 𝘳𝘦́𝘱𝘰𝘯𝘥𝘳𝘦 𝘢̀ 𝘷𝘰𝘵𝘳𝘦 𝘢𝘱𝘱𝘦𝘭, 𝘢̀ 𝘷𝘰𝘵𝘳𝘦 𝘤𝘳𝘪 𝘥𝘦 𝘤œ𝘶𝘳, 𝘦𝘯 𝘢𝘤𝘤𝘦𝘱𝘵𝘢𝘯𝘵 𝘥𝘦 𝘯𝘰𝘶𝘴 
-              𝘱𝘰𝘳𝘵𝘦𝘳 𝘤𝘢𝘯𝘥𝘪𝘥𝘢𝘵𝘴 𝘢𝘶𝘹 𝘦́𝘭𝘦𝘤𝘵𝘪𝘰𝘯𝘴 𝘭𝘦́𝘨𝘪𝘴𝘭𝘢𝘵𝘪𝘷𝘦𝘴 𝘱𝘰𝘶𝘳 𝘭𝘦 𝘥𝘦́𝘱𝘢𝘳𝘵𝘦𝘮𝘦𝘯𝘵 𝘥𝘦 𝘎𝘣𝘦́𝘭𝘦́𝘣𝘢𝘯–𝘚𝘦𝘺𝘥𝘰𝘶𝘨𝘰𝘶. 
-              𝘖𝘶𝘪, 𝘱𝘰𝘶𝘳 𝘷𝘰𝘶𝘴, 𝘯𝘰𝘶𝘴 𝘢𝘷𝘰𝘯𝘴 𝘰𝘴𝘦́. 𝘈𝘶𝘹 𝘤𝘰̂𝘵𝘦́𝘴 𝘥𝘦 𝘮𝘰𝘯 𝘢î𝘯𝘦́ 𝘖𝘶𝘴𝘮𝘢𝘯𝘦 𝘊𝘐𝘚𝘚𝘌, 𝘯𝘰𝘶𝘴 𝘢𝘷𝘰𝘯𝘴 𝘤𝘩𝘰𝘪𝘴𝘪 𝘥𝘦 𝘱𝘰𝘳𝘵𝘦𝘳 𝘷𝘰𝘴 𝘢𝘴𝘱𝘪𝘳𝘢𝘵𝘪𝘰𝘯𝘴, 
-              𝘷𝘰𝘴 𝘷𝘰𝘪𝘹 𝘦𝘵 𝘷𝘰𝘴 𝘪𝘯𝘵𝘦́𝘳𝘦̂𝘵𝘴 𝘢̀ 𝘭’𝘈𝘴𝘴𝘦𝘮𝘣𝘭𝘦́𝘦 𝘯𝘢𝘵𝘪𝘰𝘯𝘢𝘭𝘦. 𝘌𝘯 𝘲𝘶𝘪𝘯𝘻𝘦 (𝟣𝟧) 𝘢𝘯𝘴 𝘥𝘦 𝘨𝘰𝘶𝘷𝘦𝘳𝘯𝘢𝘯𝘤𝘦, 𝘭𝘦 𝘗𝘳𝘦́𝘴𝘪𝘥𝘦𝘯𝘵 𝘥𝘦 𝘭𝘢 𝘙𝘦́𝘱𝘶𝘣𝘭𝘪𝘲𝘶𝘦 
-              𝘢 𝘣𝘦𝘢𝘶𝘤𝘰𝘶𝘱 𝘧𝘢𝘪𝘵 𝘱𝘰𝘶𝘳 𝘯𝘰𝘵𝘳𝘦 𝘥𝘦́𝘱𝘢𝘳𝘵𝘦𝘮𝘦𝘯𝘵, 𝘦𝘯 𝘺 𝘪𝘮𝘱𝘭𝘢𝘯𝘵𝘢𝘯𝘵 𝘥𝘦 𝘯𝘰𝘮𝘣𝘳𝘦𝘶𝘴𝘦𝘴 𝘪𝘯𝘧𝘳𝘢𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘦𝘴 𝘦́𝘤𝘰𝘯𝘰𝘮𝘪𝘲𝘶𝘦𝘴, 𝘦́𝘥𝘶𝘤𝘢𝘵𝘪𝘷𝘦𝘴, 
-              𝘴𝘢𝘯𝘪𝘵𝘢𝘪𝘳𝘦𝘴 𝘦𝘵 𝘴𝘰𝘤𝘪𝘢𝘭𝘦𝘴. 𝘕𝘰𝘶𝘴 𝘭𝘶𝘪 𝘦𝘯 𝘴𝘰𝘮𝘮𝘦𝘴 𝘱𝘳𝘰𝘧𝘰𝘯𝘥𝘦́𝘮𝘦𝘯𝘵 𝘳𝘦𝘤𝘰𝘯𝘯𝘢𝘪𝘴𝘴𝘢𝘯𝘵𝘴. 𝘕𝘰𝘵𝘳𝘦 𝘦𝘯𝘨𝘢𝘨𝘦𝘮𝘦𝘯𝘵 𝘴𝘦 𝘫𝘶𝘴𝘵𝘪𝘧𝘪𝘦 𝘥’𝘢𝘪𝘭𝘭𝘦𝘶𝘳𝘴 
-              𝘱𝘢𝘳 𝘭𝘦 𝘵𝘢𝘶𝘹 𝘳𝘦𝘤𝘰𝘳𝘥 𝘥𝘦 𝘱𝘢𝘳𝘵𝘪𝘤𝘪𝘱𝘢𝘵𝘪𝘰𝘯 𝘦𝘯𝘳𝘦𝘨𝘪𝘴𝘵𝘳𝘦́ 𝘭𝘰𝘳𝘴 𝘥𝘦 𝘭𝘢 𝘥𝘦𝘳𝘯𝘪𝘦̀𝘳𝘦 𝘦́𝘭𝘦𝘤𝘵𝘪𝘰𝘯 𝘱𝘳𝘦́𝘴𝘪𝘥𝘦𝘯𝘵𝘪𝘦𝘭𝘭𝘦, 𝘢𝘷𝘦𝘤 𝘶𝘯 𝘴𝘤𝘰𝘳𝘦 𝘥𝘦 𝟫𝟫,𝟫𝟢 % 
-              𝘦𝘯 𝘧𝘢𝘷𝘦𝘶𝘳 𝘥𝘶 𝘗𝘳𝘦́𝘴𝘪𝘥𝘦𝘯𝘵 𝘈𝘭𝘢𝘴𝘴𝘢𝘯𝘦 𝘖𝘜𝘈𝘛𝘛𝘈𝘙𝘈 𝘥𝘢𝘯𝘴 𝘯𝘰𝘵𝘳𝘦 𝘤𝘪𝘳𝘤𝘰𝘯𝘴𝘤𝘳𝘪𝘱𝘵𝘪𝘰𝘯. 𝘊𝘦𝘱𝘦𝘯𝘥𝘢𝘯𝘵, 𝘪𝘭 𝘯𝘰𝘶𝘴 𝘳𝘦𝘷𝘪𝘦𝘯𝘵 𝘥𝘦 𝘫𝘰𝘶𝘦𝘳 𝘱𝘭𝘦𝘪𝘯𝘦𝘮𝘦𝘯𝘵 
-              𝘯𝘰𝘵𝘳𝘦 𝘳𝘰̂𝘭𝘦 𝘥𝘢𝘯𝘴 𝘭’𝘦𝘴𝘴𝘰𝘳 𝘥𝘦 𝘯𝘰𝘵𝘳𝘦 𝘥𝘦́𝘱𝘢𝘳𝘵𝘦𝘮𝘦𝘯𝘵 𝘦𝘯 𝘱𝘳𝘦𝘯𝘢𝘯𝘵 𝘱𝘢𝘳𝘵 𝘢𝘶𝘹 𝘥𝘦́𝘣𝘢𝘵𝘴 𝘱𝘰𝘭𝘪𝘵𝘪𝘲𝘶𝘦𝘴 𝘯𝘢𝘵𝘪𝘰𝘯𝘢𝘶𝘹, 𝘦𝘯 𝘳𝘦𝘥𝘺𝘯𝘢𝘮𝘪𝘴𝘢𝘯𝘵 
-              𝘯𝘰𝘵𝘳𝘦 𝘥𝘦́𝘷𝘦𝘭𝘰𝘱𝘱𝘦𝘮𝘦𝘯𝘵 𝘱𝘢𝘳 𝘭𝘢 𝘷𝘢𝘭𝘰𝘳𝘪𝘴𝘢𝘵𝘪𝘰𝘯 𝘥𝘦 𝘯𝘰𝘴 𝘳𝘦𝘴𝘴𝘰𝘶𝘳𝘤𝘦𝘴 𝘭𝘰𝘤𝘢𝘭𝘦𝘴, 𝘦𝘯 𝘦𝘯𝘤𝘰𝘶𝘳𝘢𝘨𝘦𝘢𝘯𝘵 𝘭𝘦𝘴 𝘢𝘤𝘵𝘪𝘷𝘪𝘵𝘦́𝘴 𝘨𝘦́𝘯𝘦́𝘳𝘢𝘵𝘳𝘪𝘤𝘦𝘴 𝘥𝘦 
-              𝘳𝘦𝘷𝘦𝘯𝘶𝘴 𝘱𝘰𝘶𝘳 𝘭𝘦𝘴 𝘫𝘦𝘶𝘯𝘦𝘴 𝘦𝘵 𝘭𝘦𝘴 𝘧𝘦𝘮𝘮𝘦𝘴, 𝘦𝘵 𝘦𝘯 𝘷𝘦𝘪𝘭𝘭𝘢𝘯𝘵 𝘢̀ 𝘭𝘢 𝘣𝘰𝘯𝘯𝘦 𝘦𝘹𝘦́𝘤𝘶𝘵𝘪𝘰𝘯 𝘥𝘦𝘴 𝘱𝘳𝘰𝘫𝘦𝘵𝘴 𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘢𝘯𝘵𝘴 𝘴𝘶𝘴𝘤𝘦𝘱𝘵𝘪𝘣𝘭𝘦𝘴 
-              𝘥’𝘪𝘮𝘱𝘢𝘤𝘵𝘦𝘳 𝘱𝘰𝘴𝘪𝘵𝘪𝘷𝘦𝘮𝘦𝘯𝘵 𝘭𝘢 𝘷𝘪𝘦 𝘥𝘦 𝘯𝘰𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘵𝘪𝘰𝘯𝘴. Œ𝘶𝘷𝘳𝘦𝘳 𝘱𝘰𝘶𝘳 𝘲𝘶𝘦 𝘯𝘰𝘵𝘳𝘦 𝘥𝘦́𝘱𝘢𝘳𝘵𝘦𝘮𝘦𝘯𝘵 𝘣𝘦́𝘯𝘦́𝘧𝘪𝘤𝘪𝘦 𝘥’𝘶𝘯𝘦 𝘱𝘢𝘳𝘵 
-              𝘴𝘪𝘨𝘯𝘪𝘧𝘪𝘤𝘢𝘵𝘪𝘷𝘦 𝘥𝘢𝘯𝘴 𝘭𝘢 𝘥𝘪𝘴𝘵𝘳𝘪𝘣𝘶𝘵𝘪𝘰𝘯 𝘥𝘦𝘴 𝘳𝘪𝘤𝘩𝘦𝘴𝘴𝘦𝘴 𝘯𝘢𝘵𝘪𝘰𝘯𝘢𝘭𝘦𝘴, 𝘵𝘦𝘭𝘭𝘦 𝘲𝘶𝘦 𝘱𝘳𝘰𝘮𝘪𝘴𝘦 𝘱𝘢𝘳 𝘭𝘦 𝘊𝘩𝘦𝘧 𝘥𝘦 𝘭’𝘌́𝘵𝘢𝘵 𝘱𝘰𝘶𝘳 𝘤𝘦 𝘯𝘰𝘶𝘷𝘦𝘢𝘶 𝘲𝘶𝘪𝘯𝘲𝘶𝘦𝘯𝘯𝘢𝘵, 𝘴𝘦𝘳𝘢 𝘭’𝘶𝘯𝘦 𝘥𝘦 𝘯𝘰𝘴 𝘱𝘳𝘪𝘰𝘳𝘪𝘵𝘦́𝘴. 
-              𝘊𝘩𝘦𝘳𝘴 𝘱𝘢𝘳𝘦𝘯𝘵𝘴, 𝘯𝘰𝘵𝘳𝘦 𝘤𝘢𝘯𝘥𝘪𝘥𝘢𝘵𝘶𝘳𝘦 𝘷𝘪𝘴𝘦 𝘦́𝘨𝘢𝘭𝘦𝘮𝘦𝘯𝘵 𝘢̀ 𝘳𝘦𝘯𝘧𝘰𝘳𝘤𝘦𝘳 𝘭’𝘶𝘯𝘪𝘰𝘯 𝘦𝘵 𝘭𝘢 𝘧𝘳𝘢𝘵𝘦𝘳𝘯𝘪𝘵𝘦́ 𝘦𝘯𝘵𝘳𝘦 𝘎𝘣𝘦́𝘭𝘦́𝘣𝘢𝘯 𝘦𝘵 𝘚𝘦𝘺𝘥𝘰𝘶𝘨𝘰𝘶, 
-              𝘮𝘪𝘴𝘦𝘴 𝘢̀ 𝘮𝘢𝘭 𝘥𝘶𝘳𝘢𝘯𝘵 𝘤𝘦𝘴 𝘲𝘶𝘪𝘯𝘻𝘦 (𝟣𝟧) 𝘢𝘯𝘯𝘦́𝘦𝘴 𝘱𝘢𝘳 𝘭𝘢 𝘱𝘳𝘪𝘰𝘳𝘪𝘴𝘢𝘵𝘪𝘰𝘯 𝘥’𝘪𝘯𝘵𝘦́𝘳𝘦̂𝘵𝘴 𝘱𝘦𝘳𝘴𝘰𝘯𝘯𝘦𝘭𝘴 𝘢𝘶 𝘥𝘦́𝘵𝘳𝘪𝘮𝘦𝘯𝘵 𝘥𝘶 𝘣𝘪𝘦𝘯-𝘦̂𝘵𝘳𝘦 𝘥𝘦 𝘯𝘰𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘵𝘪𝘰𝘯𝘴. 
-              𝘕𝘰𝘶𝘴 𝘯𝘦 𝘴𝘰𝘮𝘮𝘦𝘴 𝘤𝘰𝘯𝘵𝘳𝘦 𝘱𝘦𝘳𝘴𝘰𝘯𝘯𝘦 ; 𝘯𝘰𝘶𝘴 𝘴𝘰𝘮𝘮𝘦𝘴 𝘤𝘰𝘯𝘵𝘳𝘦 𝘶𝘯 𝘴𝘺𝘴𝘵𝘦̀𝘮𝘦 𝘲𝘶𝘪, 𝘥𝘶𝘳𝘢𝘯𝘵 𝘵𝘰𝘶𝘵 𝘤𝘦 𝘵𝘦𝘮𝘱𝘴, 𝘢 𝘵𝘳𝘢𝘩𝘪 𝘴𝘦𝘴 𝘦𝘯𝘨𝘢𝘨𝘦𝘮𝘦𝘯𝘵𝘴 𝘦𝘵 𝘮𝘢𝘯𝘲𝘶𝘦́ 𝘢̀ 𝘭’𝘢𝘱𝘱𝘦𝘭 𝘥𝘶 𝘱𝘦𝘶𝘱𝘭𝘦. 
-              𝘗𝘰𝘱𝘶𝘭𝘢𝘵𝘪𝘰𝘯𝘴 𝘥𝘦 𝘎𝘣𝘦́𝘭𝘦́𝘣𝘢𝘯 𝘦𝘵 𝘥𝘦 𝘚𝘦𝘺𝘥𝘰𝘶𝘨𝘰𝘶, 𝘷𝘰𝘶𝘴 𝘯𝘰𝘶𝘴 𝘢𝘷𝘦𝘻 𝘪𝘯𝘵𝘦𝘳𝘱𝘦𝘭𝘭𝘦́𝘴, 𝘷𝘰𝘶𝘴 𝘯𝘰𝘶𝘴 𝘢𝘷𝘦𝘻 𝘢𝘱𝘱𝘦𝘭𝘦́𝘴. 
-              𝘕𝘰𝘶𝘴 𝘴𝘰𝘮𝘮𝘦𝘴 𝘭𝘢̀ 𝘱𝘰𝘶𝘳 𝘷𝘰𝘶𝘴 𝘳𝘦𝘱𝘳𝘦́𝘴𝘦𝘯𝘵𝘦𝘳 𝘦𝘵 𝘷𝘰𝘶𝘴 𝘥𝘦́𝘧𝘦𝘯𝘥𝘳𝘦, 𝘤𝘰𝘮𝘮𝘦 𝘷𝘰𝘶𝘴 𝘭’𝘢𝘷𝘦𝘻 𝘵𝘰𝘶𝘫𝘰𝘶𝘳𝘴 𝘴𝘰𝘶𝘩𝘢𝘪𝘵𝘦́. 
-              𝘈𝘷𝘦𝘤 𝘷𝘰𝘶𝘴, 𝘯𝘰𝘶𝘴 𝘱𝘳𝘦𝘯𝘰𝘯𝘴 𝘳𝘦𝘯𝘥𝘦𝘻-𝘷𝘰𝘶𝘴 𝘭𝘦 𝟤𝟩 𝘥𝘦́𝘤𝘦𝘮𝘣𝘳𝘦 𝘱𝘰𝘶𝘳 𝘶𝘯 𝘯𝘰𝘶𝘷𝘦𝘢𝘶 𝘥𝘦́𝘱𝘢𝘳𝘵. 
-              𝘗𝘰𝘶𝘳 𝘷𝘰𝘶𝘴, 𝘯𝘰𝘶𝘴 𝘢𝘷𝘰𝘯𝘴 𝘰𝘴𝘦́ !
-               𝘌𝘯𝘴𝘦𝘮𝘣𝘭𝘦, 𝘰𝘴𝘰𝘯𝘴 𝘭𝘦 𝘤𝘩𝘢𝘯𝘨𝘦𝘮𝘦𝘯𝘵 maintenant ! 
-              𝐕𝐀𝐊𝐀𝐁𝐀 𝐅𝐎𝐅𝐀𝐍𝐀 
-              𝐎𝐔𝐒𝐌𝐀𝐍𝐄 𝐂𝐈𝐒𝐒𝐄́
+            {/* Texte de description TRONQUÉ */}
+            <p className="text-sm text-gray-600 mb-2 whitespace-pre-line">
+              {excerptContent}
             </p>
+            
+            {/* Bouton "Voir plus" (Orange, petit) */}
+            <button
+                onClick={openModal}
+                className={`inline-block text-sm font-semibold hover:text-[#4B0082] transition-colors pb-6`}
+                style={{ color: ORANGE_ACCENT }} 
+            >
+                Lire la déclaration complète &raquo;
+            </button>
+
 
             {/* Bouton d'action (Vert Ivoirien) */}
             <div className="flex items-center space-x-6 mb-8">
-              <button className="px-8 py-3 text-lg font-medium rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-150 shadow-md">
+              <button className="px-6 py-2 text-lg font-medium rounded-sm text-white bg-green-600 hover:bg-green-700 transition duration-150 shadow-md">
                 Rejoignez-nous
               </button>
-
-              {/* Signature simulée */}
-              {/* <div className="text-gray-500 italic text-xl font-serif">
-                Signature du Leader
-              </div> */}
             </div>
           </div>
         </div>
@@ -87,8 +92,16 @@ const VisionMissionSection: React.FC = () => {
 
       {/* Intégration de la barre de statistiques */}
       <div className="mt-12 md:mt-16">
-        <StatBar />
+        <CommitmentPoints/>
       </div>
+
+      {/* Modale du Texte Intégral */}
+      <FullTextModal 
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title="Déclaration de Candidature"
+        fullText={fullTextContent}
+      />
     </section>
   );
 };

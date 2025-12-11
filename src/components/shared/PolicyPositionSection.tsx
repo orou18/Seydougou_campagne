@@ -39,7 +39,7 @@ const PolicySection: React.FC = () => {
           {/* Titre et Étiquette */}
           <div className="flex-shrink-0">
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white bg-[#F4E8A5] rounded-md">
-              Position Politique
+              Qui est Vakaba FOFANA ?
             </span>
             <h2 className="mt-2 text-4xl font-extrabold text-gray-900 leading-tight">
               Un Leader Pour la Jeune Génération
@@ -48,10 +48,12 @@ const PolicySection: React.FC = () => {
 
           {/* Texte d'introduction à droite */}
           <div className="md:border-l-4 md:border-green-600 md:pl-6 pt-1">
-            <p className="text-lg text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing, sed eiusmod
-              tempor sit amet elit dolor sit amet elit. Nous nous engageons à
-              bâtir un avenir prospère en Côte d'Ivoire.
+            <p className="text-sm text-gray-600">
+              Fofana VAKABA est un leader engagé d’Abidjan, déterminé à défendre les intérêts de tous les citoyens 
+              lors des élections législatives du 27 décembre 2025. Fort d’une expérience de terrain et d’un sens 
+              profond du service public, il s’engage à promouvoir l’éducation, l’emploi et la cohésion sociale.
+              Accompagné de son suppléant, M. Cissé Ousmane, il porte une vision de progrès durable pour les familles,
+              les jeunes et les communautés d’Abidjan.
             </p>
           </div>
         </div>

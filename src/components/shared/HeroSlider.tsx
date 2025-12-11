@@ -94,10 +94,9 @@ export default function HeroSlider({ slides, autoSlideInterval = 7000 }: HeroSli
               custom={0}
               variants={textVariants}
               initial="hidden"
-              // On utilise la syntaxe animate="visible" car textVariants est maintenant typé correctement
               animate="visible" 
               exit="exit"
-              className="text-4xl md:text-5xl font-extrabold text-[#5A458E] leading-tight"
+              className="text-4xl md:text-3xl font-extrabold text-[#5A458E] leading-tight"
             >
               {slide.title}
             </motion.h1>
