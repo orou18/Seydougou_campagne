@@ -23,16 +23,16 @@ const ORANGE_ACCENT = 'amber-500';  // Jaune Crème/Orange
 const NEWS_ITEMS: NewsItem[] = [
     {
         id: 1,
-        imageSrc: "path/to/meeting_image.jpg",
+        imageSrc: "/images/actu1.jpg",
         admin: "Admin",
         date: "18 Nov, 2023",
-        title: "Informations Politiques...",
-        excerpt: "Plus récemment, du faux texte est apparu depuis que Lorem Ipsum est simplement le texte d'impression et de typographie...",
+        title: "ÉLECTIONS LÉGISLATIVES 2025 CIRCONSCRIPTION",
+        excerpt: "Après 15 ans d’espoir non abouti, nous avons décidé d’écouter votre appel. Avec Ousmane CISSE, nous nous portons candidats pour défendre Gbéléban–Seydougou. Nous voulons enfin offrir à notre département la place qu’il mérite dans le développement national",
         readMoreLink: "#",
     },
     {
         id: 2,
-        imageSrc: "path/to/protest_image.jpg",
+        imageSrc: "/images/actu2.jpg",
         admin: "Admin",
         date: "18 Nov, 2023",
         title: "Il est temps de changer...",
@@ -41,7 +41,7 @@ const NEWS_ITEMS: NewsItem[] = [
     },
     {
         id: 3,
-        imageSrc: "path/to/interview_image.jpg",
+        imageSrc: "/images/actu3.jpg",
         admin: "Admin",
         date: "18 Nov, 2023",
         title: "Tout le monde est bon...",

@@ -22,8 +22,8 @@ const ORANGE_ACCENT_CLASS = 'bg-orange-500';
 const TEAM_MEMBERS: TeamMember[] = [
     {
         id: 1,
-        name: "M. FOFANA VAKABA",
-        role: "Candidat Député",
+        name: "Mr. Vakaba FOFANA",
+        role: "Candidat au législative",
         imageSrc: "/images/fofanaPolitique.png", 
         facebookUrl: "https://facebook.com/fofana.vakaba",
         linkedinUrl: "https://linkedin.com/in/fofana.vakaba",
@@ -33,16 +33,16 @@ const TEAM_MEMBERS: TeamMember[] = [
         id: 2,
         name: "Mme. DIALLO AÏCHA",
         role: "Directrice de Campagne",
-        imageSrc: "path/to/diallo_aicha.jpg",
+        imageSrc: "/images/vision-team.png",
         facebookUrl: "https://facebook.com/aicha.diallo",
         linkedinUrl: "https://linkedin.com/in/aicha.diallo",
         twitterUrl: "https://twitter.com/aicha.diallo",
     },
     {
         id: 3,
-        name: "M. KONE IDRISS",
-        role: "Chargé de Communication",
-        imageSrc: "path/to/kone_idriss.jpg",
+        name: "Mr. Ousmane CISSE",
+        role: "Suppléant de Mr FOFANA",
+        imageSrc: "/images/ousmanePolitique.png",
         facebookUrl: "https://facebook.com/idriss.kone",
         linkedinUrl: "https://linkedin.com/in/idriss.kone",
         twitterUrl: "https://twitter.com/idriss.kone",
@@ -142,7 +142,7 @@ export const TeamCarouselSection: React.FC = () => {
                         Notre Équipe Politique
                     </h2>
                     <p className="text-gray-600 italic max-w-2xl mx-auto mt-4">
-                        Nous sommes unis derrière la candidature de M. FOFANA VAKABA pour les législatives en Côte d'Ivoire. Découvrez les piliers de notre campagne.
+                        Nous sommes unis derrière la candidature de M. FOFANA VAKABA pour les législatives en Côte d&apos;Ivoire. Découvrez les piliers de notre campagne.
                     </p>
                 </div>
 

@@ -26,14 +26,14 @@ const categories: Category[] = ['Tous', 'Événement', 'Campagne', 'Vote', 'Paro
 
 // Mise à jour des données factices avec les nouvelles catégories
 const DUMMY_ITEMS: GalleryItem[] = [
-    { id: 1, src: 'path/to/image1_thumb.jpg', fullSrc: 'path/to/image1_full.jpg', category: 'Événement', type: 'Image', alt: 'Manifestation pour la paix' },
-    { id: 2, src: 'path/to/image2_thumb.jpg', fullSrc: 'https://www.youtube.com/embed/dQw4w9WgXcQ', category: 'Campagne', type: 'Video', alt: 'Discours politique'},
-    { id: 3, src: 'path/to/image3_thumb.jpg', fullSrc: 'path/to/image3_full.jpg', category: 'Vote', type: 'Image', alt: 'Homme votant' },
-    { id: 4, src: 'path/to/image4_thumb.jpg', fullSrc: 'path/to/image4_full.jpg', category: 'Parole', type: 'Image', alt: 'Femme parlant en public' },
-    { id: 5, src: 'path/to/image5_thumb.jpg', fullSrc: 'path/to/image5_full.jpg', category: 'Événement', type: 'Image', alt: 'Réunion de travail' },
-    { id: 6, src: 'path/to/image6_thumb.jpg', fullSrc: 'path/to/image6_full.jpg', category: 'Campagne', type: 'Image', alt: 'Affiche de campagne' },
-    { id: 7, src: 'path/to/image7_thumb.jpg', fullSrc: 'path/to/image7_full.jpg', category: 'Vote', type: 'Image', alt: 'Urne de vote' },
-    { id: 8, src: 'path/to/image8_thumb.jpg', fullSrc: 'path/to/image8_full.jpg', category: 'Parole', type: 'Image', alt: 'Intervention télévisée' },
+    { id: 1, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Événement', type: 'Image', alt: 'Manifestation pour la paix' },
+    { id: 2, src: 'path/to/image2_thumb.jpg', fullSrc: '/images/video1.mp4', category: 'Campagne', type: 'Video', alt: 'Discours politique'},
+    { id: 3, src: '/images/gal3.jpg', fullSrc: '/images/gal3.jpg', category: 'Vote', type: 'Image', alt: 'Homme votant' },
+    { id: 4, src: '/images/gal4.jpeg', fullSrc: '/images/gal4.jpeg', category: 'Parole', type: 'Image', alt: 'Femme parlant en public' },
+    { id: 5, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Événement', type: 'Image', alt: 'Réunion de travail' },
+    { id: 6, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Campagne', type: 'Image', alt: 'Affiche de campagne' },
+    { id: 7, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Vote', type: 'Image', alt: 'Urne de vote' },
+    { id: 8, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Parole', type: 'Image', alt: 'Intervention télévisée' },
 ];
 
 

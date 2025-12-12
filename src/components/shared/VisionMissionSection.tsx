@@ -62,7 +62,7 @@ const VisionMissionSection: React.FC = () => {
 
             {/* Titre */}
             <h2 className="text-4xl font-extrabold text-gray-900 leading-snug mb-4">
-              Notre vision pour la Côte d'Ivoire
+              Notre vision pour la Côte d&apos;Ivoire
             </h2>
 
             {/* Texte de description TRONQUÉ */}
