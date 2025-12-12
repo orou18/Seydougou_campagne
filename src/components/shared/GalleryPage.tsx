@@ -27,7 +27,7 @@ const categories: Category[] = ['Tous', 'Événement', 'Campagne', 'Vote', 'Paro
 // Mise à jour des données factices avec les nouvelles catégories
 const DUMMY_ITEMS: GalleryItem[] = [
     { id: 1, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Événement', type: 'Image', alt: 'Manifestation pour la paix' },
-    { id: 2, src: 'path/to/image2_thumb.jpg', fullSrc: '/images/video1.mp4', category: 'Campagne', type: 'Video', alt: 'Discours politique'},
+    { id: 2, src: '/images/video1.mp4', fullSrc: '/images/video1.mp4', category: 'Campagne', type: 'Video', alt: 'Discours politique'},
     { id: 3, src: '/images/gal3.jpg', fullSrc: '/images/gal3.jpg', category: 'Vote', type: 'Image', alt: 'Homme votant' },
     { id: 4, src: '/images/gal4.jpeg', fullSrc: '/images/gal4.jpeg', category: 'Parole', type: 'Image', alt: 'Femme parlant en public' },
     { id: 5, src: '/images/gal1.jpg', fullSrc: '/images/gal1.jpg', category: 'Événement', type: 'Image', alt: 'Réunion de travail' },
@@ -175,7 +175,7 @@ export const GalleryPage: React.FC = () => {
             />
             
             {/* Overlay et icône vidéo */}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-colors"></div>
+            
             {item.type === 'Video' && (
                 <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                                 text-white text-5xl text-shadow-lg opacity-80 group-hover:opacity-100 transition-opacity">
