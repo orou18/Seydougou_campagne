@@ -11,6 +11,7 @@ import { GalleryPage } from "@/components/shared/GalleryPage";
 import PoliticalTeamSection from "@/components/shared/PoliticalTeamSection";
 import {RegularUpdateSection} from "@/components/shared/RegularUpdateSection";
 import ContactFormSection from "@/components/shared/ContactFormSection";
+import Footer from "@/components/shared/Footer";
 
 export default function HomePage() {
   return (
@@ -101,6 +102,9 @@ export default function HomePage() {
          <br />
 
         <ContactFormSection/>
+         <br />
+
+        <Footer/>
 
 
 

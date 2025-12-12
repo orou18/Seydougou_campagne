@@ -3,8 +3,7 @@
 "use client";
 
 import React from 'react';
-// Importation des icônes pour les points de contact (simulées ici, remplacez par des icônes réelles comme IoLocation, IoCall, IoMail)
-import { IoLocationSharp, IoCallSharp, IoMailSharp } from "react-icons/io5"; 
+import { IoLocationSharp, IoCallSharp, IoMailSharp, IoArrowForward } from "react-icons/io5"; 
 
 // --- Couleurs et Constantes ---
 const VIOLET_PRIMARY = '#4B0082';
@@ -12,114 +11,140 @@ const ORANGE_ACCENT = '#FFA500';
 
 const ContactFormSection: React.FC = () => {
     
-    // Pour une meilleure réutilisation, les classes de gradient (Violet vers Orange)
-    // J'utilise la syntaxe Tailwind avec des valeurs HEX entre crochets pour le gradient.
-    const gradientClasses = `bg-gradient-to-r from-[${VIOLET_PRIMARY}] to-[${ORANGE_ACCENT}]`;
+    const gradientClasses = `bg-gradient-to-r from-[#4B0082] to-[#FFA500]`;
+    
+    const inputFocusStyle = {
+        borderColor: VIOLET_PRIMARY,
+        // Ajout d'une ombre douce (glow) orange au focus
+        boxShadow: `0 0 0 3px ${ORANGE_ACCENT}30`, // 30 = 20% d'opacité
+        transition: 'border-color 0.3s, box-shadow 0.3s',
+    };
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-gray-100"> 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                {/* En-tête de la Section */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between pb-10 mb-8">
-                    
-                    {/* Bloc Titre */}
-                    <div className="mb-6 md:mb-0 max-w-lg">
-                        <div className="inline-block py-1 px-3 mb-2 rounded-sm text-white font-bold text-xs uppercase"
-                             style={{ backgroundColor: VIOLET_PRIMARY }}>
-                            RESTER CONNECTÉ
-                        </div>
-                        <h2 className="text-4xl font-extrabold text-gray-800 mt-1">
-                            Connectez-vous à M. Fofana Vakaba
-                        </h2>
-                        {/* Texte d'accroche */}
-                         <p className="text-gray-600 italic mt-3 border-l-4 pl-4" style={{ borderColor: ORANGE_ACCENT }}>
-                            Votre voix compte ! Contactez-nous pour partager vos idées, devenir bénévole ou en savoir plus sur notre programme pour Gbéléban–Seydougou.
-                        </p>
+                <div className="text-center mb-16">
+                    <div className="inline-block py-1 px-3 mb-2 rounded-sm text-white bg-[#FFA500] font-bold text-xs uppercase tracking-widest">
+                        PARTICIPATION
                     </div>
-
-                    {/* Bloc Texte d'Explication (Basé sur le design fourni) */}
-                    <div className="md:w-1/3 text-gray-700 italic pt-4">
-                        {/* Ce texte est inspiré de la mise en page de votre image. */}
-                        "Nous nous engageons à construire un lien fort et durable avec chaque citoyen de notre département. Chaque message est lu attentivement."
-                    </div>
+                    <h2 className="text-5xl font-extrabold  text-gray-900 mt-1">
+                        S'engager et Construire Seydougou
+                    </h2>
+                    <p className="text-lg text-gray-600 italic max-w-3xl mx-auto mt-4">
+                        Contactez directement l'équipe de campagne de M. Fofana Vakaba. Chaque citoyen est un pilier de notre victoire législative.
+                    </p>
                 </div>
 
                 {/* Contenu (Infos + Formulaire) */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     
-                    {/* Bloc Gauche : Informations de Contact (Get In Touch) */}
-                    <div className="lg:col-span-1 p-8 bg-white shadow-xl rounded-lg">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                            Informations Utiles
+                    {/* Bloc Gauche : Informations de Contact (Visuellement Distinct) */}
+                    <div className="lg:col-span-1 p-8 bg-[#4B0082] hover:bg-amber-500 rounded-xl shadow-2xl text-white" >
+                        
+                        <h3 className="text-3xl font-bold mb-8 border-b-2 pb-3" style={{ borderColor: ORANGE_ACCENT }}>
+                            Restons en Contact !
                         </h3>
                         
+                        {/* Texte d'Explication dans le bloc sombre */}
+                        <p className="text-sm italic mb-10 opacity-80">
+                            Que vous ayez une question, une proposition, ou l'envie de rejoindre le mouvement, notre équipe est prête à vous écouter.
+                        </p>
+                        
                         {/* Liste des Infos */}
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             
                             {/* Adresse */}
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full text-white flex-shrink-0" style={{ backgroundColor: ORANGE_ACCENT }}>
-                                    <IoLocationSharp className="w-5 h-5" />
+                                <div className="p-3 rounded-full text-gray-900 flex-shrink-0 shadow-lg" style={{ backgroundColor: ORANGE_ACCENT }}>
+                                    <IoLocationSharp className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-md font-semibold text-gray-800">Adresse de Campagne</p>
-                                    <p className="text-sm text-gray-600">Quartier Général, Seydougou, Gbéléban, CI.</p>
+                                    <p className="text-md font-semibold">Adresse de Campagne</p>
+                                    <p className="text-sm opacity-80">Quartier Général, Seydougou, Gbéléban, CI.</p>
                                 </div>
                             </div>
 
                             {/* Téléphone */}
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full text-white flex-shrink-0" style={{ backgroundColor: ORANGE_ACCENT }}>
-                                    <IoCallSharp className="w-5 h-5" />
+                                <div className="p-3 rounded-full text-gray-900 flex-shrink-0 shadow-lg" style={{ backgroundColor: ORANGE_ACCENT }}>
+                                    <IoCallSharp className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-md font-semibold text-gray-800">Ligne Directe</p>
-                                    <p className="text-sm text-gray-600">+225 XX XX XX XX</p>
+                                    <p className="text-md font-semibold">Ligne Directe</p>
+                                    <p className="text-sm opacity-80">+225 XX XX XX XX</p>
                                 </div>
                             </div>
 
                             {/* Email */}
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full text-white flex-shrink-0" style={{ backgroundColor: ORANGE_ACCENT }}>
-                                    <IoMailSharp className="w-5 h-5" />
+                                <div className="p-3 rounded-full text-gray-900 flex-shrink-0 shadow-lg" style={{ backgroundColor: ORANGE_ACCENT }}>
+                                    <IoMailSharp className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-md font-semibold text-gray-800">Adresse E-mail</p>
-                                    <p className="text-sm text-gray-600">contact@fofanavakaba.ci</p>
+                                    <p className="text-md font-semibold">Adresse E-mail</p>
+                                    <p className="text-sm opacity-80">contact@fofanavakaba.ci</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Bloc Droite : Formulaire */}
-                    <div className="lg:col-span-2 bg-white p-8 rounded-lg shadow-xl">
+                    {/* Bloc Droite : Formulaire (Clair et Net) */}
+                    <div className="lg:col-span-2 bg-white p-10 rounded-xl shadow-2xl">
                         <form className="space-y-6">
                             
                             {/* Nom et Prénom */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <input type="text" placeholder="Prénom" className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} required />
-                                <input type="text" placeholder="Nom de Famille" className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} required />
+                                <input 
+                                    type="text" 
+                                    placeholder="Prénom" 
+                                    className="p-3 border border-gray-300 rounded-lg w-full focus:ring-0 text-gray-500" 
+                                 />
+                                <input 
+                                    type="text" 
+                                    placeholder="Nom de Famille" 
+                                    className="p-3 border border-gray-300 rounded-lg w-full focus:ring-0 text-gray-500" 
+                                 />
                             </div>
                             
                             {/* Email et Téléphone */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <input type="email" placeholder="Votre E-mail" className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} required />
-                                <input type="tel" placeholder="Numéro de Téléphone" className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} />
+                                <input 
+                                    type="email" 
+                                    placeholder="Votre E-mail" 
+                                    className="p-3 border border-gray-300 rounded-lg w-full focus:ring-0 text-gray-500" 
+                                 />
+                                <input 
+                                    type="tel" 
+                                    placeholder="Numéro de Téléphone" 
+                                    className="p-3 border border-gray-300 rounded-lg w-full focus:ring-0 text-gray-500" 
+                                />
                             </div>
                             
-                            {/* Zone/Code Postal - Adapté au contexte CI (Circonscription ou Commune) */}
-                            <input type="text" placeholder="Votre Commune ou Village de résidence" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} required />
+                            {/* Commune/Village */}
+                            <input 
+                                type="text" 
+                                placeholder="Votre Commune ou Village de résidence" 
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 text-gray-500" 
+                            />
 
                             {/* Message */}
-                            <textarea placeholder="Votre message ou question (ex: 'Je veux être bénévole', 'Question sur le programme Éducation')" rows={4} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50" style={{ borderColor: VIOLET_PRIMARY }} required></textarea>
+                            <textarea 
+                                placeholder="Votre message ou question (ex: 'Je veux être bénévole', 'Proposition pour le développement')" 
+                                rows={5} 
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 text-gray-500" 
+                            ></textarea>
 
-                            {/* Bouton d'Action (Join Now) */}
                             <button 
                                 type="submit" 
-                                className={`w-full py-3 text-lg font-medium text-white rounded-lg transition-all duration-300 shadow-lg ${gradientClasses} hover:opacity-90`}
+                                className={`w-full py-4 text-xl font-extrabold text-white rounded-lg transition-all duration-300 shadow-xl ${gradientClasses} 
+                                           transform hover:scale-[1.01] hover:shadow-2xl flex items-center justify-center space-x-3`}
+                                style={{
+                                    border: `2px solid ${VIOLET_PRIMARY}`, 
+                                }}
                             >
-                                Rejoindre le Mouvement / Envoyer
+                                <span>JE M'ENGAGE / ENVOYER MON MESSAGE</span>
+                                <IoArrowForward className="w-6 h-6 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                             </button>
                         </form>
                     </div>

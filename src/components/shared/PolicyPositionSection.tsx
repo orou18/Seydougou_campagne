@@ -1,15 +1,15 @@
 // components/PolicySection.tsx
+"use client";
+
 import React from "react";
 import PolicyCard from "./PolicyCard";
-
-// Les données pour les cartes
 const policyData = [
   {
-    iconType: "economy" as const, // Utilisation de 'as const' pour TypeScript
+    iconType: "economy" as const, 
     title: "Croissance Économique",
     description:
       "Des mesures récentes qui stimulent l'investissement et créent des emplois pour la jeunesse Ivoirienne. Lorem Ipsum est simplement un texte simulé.",
-    imageSrc: "/images/policy-image-1.jpg", // Remplacez par les chemins de vos images
+    imageSrc: "/images/policy-image-1.jpg", 
     color: "orange" as const,
   },
   {

@@ -3,6 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { IoLogoFacebook, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5'; // Import des vraies icônes
 
 interface TeamMember {
   id: number;
@@ -14,21 +15,20 @@ interface TeamMember {
   twitterUrl: string;
 }
 
-// --- Constantes et Couleurs Tailwind ---
-const INDIGO_PRIMARY = 'indigo-600'; // Violet Indigo
-const ORANGE_ACCENT = 'orange-500';  
+// --- Couleurs Thématiques (Adaptation du Violet pour la cohérence) ---
+// Note: J'utilise 'indigo-600' comme proxy pour un violet foncé, et 'orange-500' pour l'accent.
+const VIOLET_PRIMARY_CLASS = 'text-indigo-600'; 
+const ORANGE_ACCENT_CLASS = 'bg-orange-500';  
 const TEAM_MEMBERS: TeamMember[] = [
     {
         id: 1,
         name: "M. FOFANA VAKABA",
         role: "Candidat Député",
-        // MODIFICATION ICI : Référence directe au dossier /public
         imageSrc: "/images/fofanaPolitique.png", 
         facebookUrl: "https://facebook.com/fofana.vakaba",
         linkedinUrl: "https://linkedin.com/in/fofana.vakaba",
         twitterUrl: "https://twitter.com/fofana.vakaba",
     },
-    // ... (Reste des membres inchangé)
     {
         id: 2,
         name: "Mme. DIALLO AÏCHA",
@@ -47,42 +47,32 @@ const TEAM_MEMBERS: TeamMember[] = [
         linkedinUrl: "https://linkedin.com/in/idriss.kone",
         twitterUrl: "https://twitter.com/idriss.kone",
     },
-    {
-        id: 4,
-        name: "Mme. TRAORÉ MARIAMA",
-        role: "Coordinatrice des Volontaires",
-        imageSrc: "path/to/traore_mariama.jpg",
-        facebookUrl: "https://facebook.com/mariama.traore",
-        linkedinUrl: "https://linkedin.com/in/mariama.traore",
-        twitterUrl: "https://twitter.com/mariama.traore",
-    },
 ];
 
-// ... (Reste du composant inchangé, il utilise déjà member.imageSrc)
+// --- Composant pour les Cartes des Membres ---
 
 const MemberCard: React.FC<{ member: TeamMember, isActive: boolean }> = ({ member, isActive }) => {
     
-    // Classes pour les icônes (Tailwind n'inclut pas les icônes, donc on simule)
-    const socialIconClasses = `w-8 h-8 rounded-full bg-white text-indigo-600 flex items-center justify-center text-lg hover:bg-orange-500 hover:text-white transition-colors`;
+    // Classes pour les icônes sociales (maintenant de vraies icônes)
+    const socialIconClasses = `w-8 h-8 rounded-full bg-white ${VIOLET_PRIMARY_CLASS} flex items-center justify-center text-lg hover:${ORANGE_ACCENT_CLASS} hover:text-white transition-colors shadow-md`;
     
     // Classes de transition pour la carte entière
-    const cardClasses = `relative w-full overflow-hidden bg-white shadow-lg rounded-lg group transition-all duration-700 ease-in-out ${
+    const cardClasses = `relative w-full overflow-hidden bg-white shadow-lg rounded-xl group transition-all duration-700 ease-in-out ${
         isActive 
-            ? 'opacity-100 scale-105 shadow-2xl z-10' 
-            : 'opacity-50 scale-100 shadow-md z-0'   
+            ? 'opacity-100 scale-105 shadow-2xl z-10 border-4 border-indigo-600' // Ajout d'une bordure accentuée
+            : 'opacity-70 scale-100 shadow-md z-0'   // Légèrement plus opaque
     }`;
     
     // Couleur de l'overlay au survol (Orange avec 40% d'opacité)
-    const overlayColor = 'group-hover:bg-orange-500/40';
+    const overlayColor = 'group-hover:bg-orange-500/50'; // Opacité légèrement augmentée
 
     return (
-        <div className={cardClasses} onMouseEnter={() => { }}>
+        <div className={cardClasses}>
             
             {/* Conteneur Image */}
             <div 
-                className={`relative w-full h-80 bg-gray-100 flex items-center justify-center`} 
+                className={`relative w-full h-96 bg-gray-100 flex items-center justify-center`} // Hauteur augmentée
             >
-                {/* Cette balise <img> utilisera le chemin mis à jour */}
                 <img 
                     src={member.imageSrc} 
                     alt={member.name} 
@@ -90,65 +80,62 @@ const MemberCard: React.FC<{ member: TeamMember, isActive: boolean }> = ({ membe
                 />
             </div>
             
-            {/* ... (Reste de MemberCard inchangé) ... */}
+            {/* Overlay au Survol */}
             <div 
-                className={`absolute inset-0 flex flex-col justify-between p-4 transition-all duration-300 ${overlayColor}`}
+                className={`absolute inset-0 flex flex-col justify-between p-6 transition-all duration-300 ${overlayColor}`}
             >
                 {/* Liens Sociaux (en haut, centrés) */}
-                <div className="flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 transform group-hover:translate-y-0 translate-y-4">
+                <div className="flex justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 transform group-hover:translate-y-0 translate-y-4">
                     
                     <a href={member.facebookUrl} target="_blank" rel="noopener noreferrer" aria-label={`Facebook de ${member.name}`} className={socialIconClasses}>
-                        <i className="fab fa-facebook-f">FB</i> 
+                        <IoLogoFacebook className="w-5 h-5" /> {/* VRAIE ICÔNE */}
                     </a>
                     <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className={socialIconClasses}>
-                        <i className="fab fa-linkedin-in">LI</i>
+                        <IoLogoLinkedin className="w-5 h-5" /> {/* VRAIE ICÔNE */}
                     </a>
                     <a href={member.twitterUrl} target="_blank" rel="noopener noreferrer" aria-label={`Twitter de ${member.name}`} className={socialIconClasses}>
-                        <i className="fab fa-twitter">TW</i> 
+                        <IoLogoTwitter className="w-5 h-5" /> {/* VRAIE ICÔNE */}
                     </a>
                 </div>
 
                 {/* Nom et Statut (en bas) */}
                 <div className={`text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 
-                                p-2 rounded-md bg-orange-500 bg-opacity-90 transform group-hover:translate-y-0 translate-y-4`}>
-                    <h3 className="text-lg font-bold">{member.name}</h3>
-                    <p className="text-sm italic">{member.role}</p>
+                                p-3 rounded-md ${ORANGE_ACCENT_CLASS} bg-opacity-90 transform group-hover:translate-y-0 translate-y-4`}>
+                    <h3 className="text-xl font-bold">{member.name}</h3>
+                    <p className="text-sm italic font-medium">{member.role}</p>
                 </div>
             </div>
         </div>
     );
 };
 
-// ... (Reste de TeamCarouselSection inchangé) ...
+// --- Composant de Section Principal ---
+
 export const TeamCarouselSection: React.FC = () => {
-    // État pour gérer l'index de la carte actuellement active
     const [activeIndex, setActiveIndex] = useState(0);
     const totalMembers = TEAM_MEMBERS.length;
-    const intervalTime = 4000; // Défilement toutes les 4 secondes
+    const intervalTime = 4000; 
 
-    // Hook pour le défilement automatique
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveIndex((current) => (current + 1) % totalMembers);
         }, intervalTime);
 
-        // Nettoyage de l'intervalle lors du démontage du composant
         return () => clearInterval(timer);
     }, [totalMembers, intervalTime]);
     
-    // Fonction pour passer à l'index spécifique (utile pour les points de navigation)
     const goToIndex = (index: number) => {
         setActiveIndex(index);
     };
 
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* En-tête de la Section */}
                 <div className="text-center pb-12 mb-8 border-b border-gray-200">
-                    <div className={`inline-block py-1 px-3 mb-2 rounded-sm bg-orange-500 text-white font-bold text-xs uppercase`}>
+                    <div className={`inline-block py-1 px-3 mb-2 rounded-sm ${ORANGE_ACCENT_CLASS} text-white font-bold text-xs uppercase`}>
                         ÉQUIPE
                     </div>
                     <h2 className="text-4xl font-bold text-gray-800 mt-1">
@@ -159,25 +146,24 @@ export const TeamCarouselSection: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Grille des Membres (Mise en page Carrousel) */}
-                {/* J'utilise une grille standard, mais les styles gèrent l'effet de mise en avant */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                {/* Grille des Membres (Passage à 3 colonnes, Légèrement Centré) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center"> 
                     {TEAM_MEMBERS.map((member, index) => (
                         <MemberCard 
                             key={member.id} 
                             member={member} 
-                            isActive={index === activeIndex} // Passe l'état actif/inactif
+                            isActive={index === activeIndex} 
                         />
                     ))}
                 </div>
                 
                 {/* Points de Navigation/Contrôle */}
-                <div className="flex justify-center mt-10 space-x-3">
+                <div className="flex justify-center mt-12 space-x-3">
                     {TEAM_MEMBERS.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => goToIndex(index)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            className={`w-4 h-4 rounded-full transition-all duration-300 ${
                                 index === activeIndex ? `bg-indigo-600 scale-125` : 'bg-gray-300 hover:bg-indigo-400'
                             }`}
                             aria-label={`Afficher le membre ${index + 1}`}
